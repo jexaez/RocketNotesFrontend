@@ -1,34 +1,48 @@
-import {Container, Brand, Menu, Search, Content, NewNote} from "./styles"
+import { FiPlus } from 'react-icons/fi'
+import { Container, Brand, Menu, Search, Content, NewNote } from './styles'
 
-import { Header } from "../../components/Header";
-import { ButtonText} from "../../components/ButtonText"
+import { Notes } from '../../components/Notes'
+import { Input } from '../../components/Input'
+import { Header } from '../../components/Header'
+import { Section } from '../../components/Section'
+import { ButtonText } from '../../components/ButtonText'
 
-export function Home(){
-    return(
-        <Container>
-            <Brand>
-                <h1>Rocketnotes</h1>
-            </Brand>
+export function Home() {
+  return (
+    <Container>
+      <Brand>
+        <h1>Rocketnotes</h1>
+      </Brand>
 
-            <Header></Header>
-            
-            <Menu>
-               <li><ButtonText title="Todos" isActive /></li> 
-               <li><ButtonText title="Frontend"/></li>
-               <li><ButtonText title="React"/></li> 
-               <li><ButtonText title="Nodejs"/></li>
-                
+      <Header />
 
+      <Menu>
+        <li><ButtonText title="Todos" $isactive /></li>
+        <li><ButtonText title="React" /></li>
+        <li><ButtonText title="Nodejs" /></li>
+      </Menu>
 
-            </Menu>
+      <Search>
+        <Input placeholder="Pesquisar pelo título" />
+      </Search>
 
-            <Search/>
-                            
-            <Content />
+      <Content>
+        <Section title="Minhas notas">
+          <Notes data={{
+            title: 'React',
+            tags: [
+              { id: '1', name: 'react' },
+              { id: '2', name: 'rocketseat' }
+            ]
+          }}
+          />
+        </Section>
+      </Content>
 
-            <NewNote />
-                       
-        </Container>
-        
-    );
+      <NewNote to="/new">
+        <FiPlus />
+        Criar nota
+      </NewNote>
+    </Container>
+  )
 }
