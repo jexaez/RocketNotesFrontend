@@ -3,7 +3,7 @@ import { Container} from "./styles"
 
 export function Notes({data, ...rest}){
     return(
-        <Container>
+        <Container {...rest}>
             <h1>{data.title}</h1>
             
             {
